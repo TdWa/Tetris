@@ -383,7 +383,7 @@ class Scene1 extends Phaser.Scene {
 
     //SLOW DOWN
     this.input.keyboard.on('keyup-' + 'A', () => {
-      if (gameState.speed > 0) {
+      if (gameState.speed > 1) {
         gameState.speed--;
         currentSpeedText.setText(`Speed: ${gameState.speed}`);
         if (currentShape === 'square' || currentShape === 'rectangle') {
