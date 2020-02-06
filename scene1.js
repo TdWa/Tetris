@@ -11,7 +11,7 @@ class Scene1 extends Phaser.Scene {
     let stopOverlap = true;
     let score = 0;
     let rectangleState = 1; let triangleState = 1; let hammerState = 1; let zigzagState = 1;
-    let currentShape = undefined;
+    let currentShape;
     
     //ADDING BACKGROUND, FLOOR AND PLAYER SHAPES
     const background = this.add.grid(302, 402, config.width, config.height, 50, 50, 0xf0f8ff);
@@ -360,16 +360,16 @@ class Scene1 extends Phaser.Scene {
       const shape1 = shapeAssigner()[0]; const shape2 = shapeAssigner()[1]; //for a short moment 
 
       clones.getChildren().some((clone) => {
-        if (clone.y > shape1.y && Math.abs(clone.x - shape1.x) < (clone.width + shape1.width)/2 - 2 &&
-        Math.abs(clone.y - shape1.y) < (clone.height + shape1.height)/2) {
+        if (clone.y > shape1.y && Math.abs(clone.x - shape1.x) < (clone.width + shape1.width)/2 &&
+        Math.abs(clone.y - shape1.y) < (clone.height + shape1.height)/2 - 2) {
           stopOverlap = false;
         }
       });
 
       if (shape2 != undefined) {
         clones.getChildren().some((clone) => {
-          if (clone.y > shape2.y && Math.abs(clone.x - shape2.x) < (clone.width + shape2.width)/2 - 2 &&
-          Math.abs(clone.y - shape2.y) < (clone.height + shape2.height)/2) {
+          if (clone.y > shape2.y && Math.abs(clone.x - shape2.x) < (clone.width + shape2.width)/2 &&
+          Math.abs(clone.y - shape2.y) < (clone.height + shape2.height)/2 - 2) {
             stopOverlap = false;
           }
         });
@@ -460,7 +460,7 @@ class Scene1 extends Phaser.Scene {
       const distance1X = Math.abs(clone.x - shape1.x);
       const minDistance1X = (clone.width + shape1.width)/2 + 50;
       if (currentShape === 'square' || currentShape === 'rectangle') {
-        if (shape1.x > clone.x && Math.abs(clone.y - shape1.y) < (clone.height + shape1.height)/2 - 7) {
+        if (shape1.x > clone.x && Math.abs(clone.y - shape1.y) < (clone.height + shape1.height)/2 - 5) {
           return distance1X < minDistance1X;
         }
         else {return false;}
@@ -469,11 +469,11 @@ class Scene1 extends Phaser.Scene {
         const distance2X = Math.abs(clone.x - shape2.x);
         const minDistance2X = (clone.width + shape2.width)/2 + 50;
         let a, b;
-        if (shape1.x > clone.x && Math.abs(clone.y - shape1.y) < (clone.height + shape1.height)/2 - 7) {
+        if (shape1.x > clone.x && Math.abs(clone.y - shape1.y) < (clone.height + shape1.height)/2 - 5) {
           a = distance1X < minDistance1X;
         }
         else {a = false;}
-        if (shape2.x > clone.x && Math.abs(clone.y - shape2.y) < (clone.height + shape2.height)/2 - 7) {
+        if (shape2.x > clone.x && Math.abs(clone.y - shape2.y) < (clone.height + shape2.height)/2 - 5) {
           b = distance2X < minDistance2X;
         }
         else {b = false;}
@@ -485,7 +485,7 @@ class Scene1 extends Phaser.Scene {
       const distance1X = Math.abs(clone.x - shape1.x);
       const minDistance1X = (clone.width + shape1.width)/2 + 50;
       if (currentShape === 'square' || currentShape === 'rectangle') {
-        if (shape1.x < clone.x && Math.abs(clone.y - shape1.y) < (clone.height + shape1.height)/2 - 7) {
+        if (shape1.x < clone.x && Math.abs(clone.y - shape1.y) < (clone.height + shape1.height)/2 - 5) {
           return distance1X < minDistance1X;
         }
         else {return false;}
@@ -494,11 +494,11 @@ class Scene1 extends Phaser.Scene {
         const distance2X = Math.abs(clone.x - shape2.x);
         const minDistance2X = (clone.width + shape2.width)/2 + 50;
         let a, b;
-        if (shape1.x < clone.x && Math.abs(clone.y - shape1.y) < (clone.height + shape1.height)/2 - 7) {
+        if (shape1.x < clone.x && Math.abs(clone.y - shape1.y) < (clone.height + shape1.height)/2 - 5) {
           a = distance1X < minDistance1X;
         }
         else {a = false;}
-        if (shape2.x < clone.x && Math.abs(clone.y - shape2.y) < (clone.height + shape2.height)/2 - 7) {
+        if (shape2.x < clone.x && Math.abs(clone.y - shape2.y) < (clone.height + shape2.height)/2 - 5) {
           b = distance2X < minDistance2X;
         }
         else {b = false;}
