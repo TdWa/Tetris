@@ -460,7 +460,7 @@ class Scene1 extends Phaser.Scene {
       const distance1X = Math.abs(clone.x - shape1.x);
       const minDistance1X = (clone.width + shape1.width)/2 + 50;
       if (currentShape === 'square' || currentShape === 'rectangle') {
-        if (shape1.x > clone.x && Math.abs(clone.y - shape1.y) < (clone.height + shape1.height)/2 - 5) {
+        if (shape1.x > clone.x && Math.abs(clone.y - shape1.y) < (clone.height + shape1.height)/2 - 6) {
           return distance1X < minDistance1X;
         }
         else {return false;}
@@ -469,11 +469,11 @@ class Scene1 extends Phaser.Scene {
         const distance2X = Math.abs(clone.x - shape2.x);
         const minDistance2X = (clone.width + shape2.width)/2 + 50;
         let a, b;
-        if (shape1.x > clone.x && Math.abs(clone.y - shape1.y) < (clone.height + shape1.height)/2 - 5) {
+        if (shape1.x > clone.x && Math.abs(clone.y - shape1.y) < (clone.height + shape1.height)/2 - 6) {
           a = distance1X < minDistance1X;
         }
         else {a = false;}
-        if (shape2.x > clone.x && Math.abs(clone.y - shape2.y) < (clone.height + shape2.height)/2 - 5) {
+        if (shape2.x > clone.x && Math.abs(clone.y - shape2.y) < (clone.height + shape2.height)/2 - 6) {
           b = distance2X < minDistance2X;
         }
         else {b = false;}
@@ -485,7 +485,7 @@ class Scene1 extends Phaser.Scene {
       const distance1X = Math.abs(clone.x - shape1.x);
       const minDistance1X = (clone.width + shape1.width)/2 + 50;
       if (currentShape === 'square' || currentShape === 'rectangle') {
-        if (shape1.x < clone.x && Math.abs(clone.y - shape1.y) < (clone.height + shape1.height)/2 - 5) {
+        if (shape1.x < clone.x && Math.abs(clone.y - shape1.y) < (clone.height + shape1.height)/2 - 6) {
           return distance1X < minDistance1X;
         }
         else {return false;}
@@ -494,11 +494,11 @@ class Scene1 extends Phaser.Scene {
         const distance2X = Math.abs(clone.x - shape2.x);
         const minDistance2X = (clone.width + shape2.width)/2 + 50;
         let a, b;
-        if (shape1.x < clone.x && Math.abs(clone.y - shape1.y) < (clone.height + shape1.height)/2 - 5) {
+        if (shape1.x < clone.x && Math.abs(clone.y - shape1.y) < (clone.height + shape1.height)/2 - 6) {
           a = distance1X < minDistance1X;
         }
         else {a = false;}
-        if (shape2.x < clone.x && Math.abs(clone.y - shape2.y) < (clone.height + shape2.height)/2 - 5) {
+        if (shape2.x < clone.x && Math.abs(clone.y - shape2.y) < (clone.height + shape2.height)/2 - 6) {
           b = distance2X < minDistance2X;
         }
         else {b = false;}
